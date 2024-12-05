@@ -1,0 +1,170 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Meherpurian University </title> 
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head> 
+<body class="bg-gray-100"> 
+    <!-- Navigation Section --> 
+    <nav class="bg-blue-800 text-white py-4"> 
+        <div class="container mx-auto flex justify-between items-center"> 
+            <h1 class="text-2xl font-bold">Meherpurian University</h1> 
+            <ul class="flex space-x-6"> 
+                <li><a href="https://daffodilvarsity.edu.bd/article/bangladesh-corner" class="hover:underline">Bangladesh Corner</a></li> 
+                <li><a href="https://forum.daffodilvarsity.edu.bd/" class="hover:underline">Form</a></li> 
+                <li><a href="https://daffodilvarsity.edu.bd/article/students" class="hover:underline">Student</a></li> 
+                <li><a href="https://parents.daffodilvarsity.edu.bd/" class="hover:underline">Parents</a></li> 
+                <li><a href="https://daffodilvarsity.edu.bd/article/faculty" class="hover:underline">Teacher</a></li> 
+                <li><a href="https://alumni.daffodilvarsity.edu.bd/" class="hover:underline">Alumni</a></li> 
+                <li><a href="https://daffodilvarsity.edu.bd/article/administration-directory" class="hover:underline">Administration</a></li> 
+                <li><a href="https://pd.daffodilvarsity.edu.bd/support_ticket" class="hover:underline">Help Desk</a></li> 
+                <li><a href="https://daffodilvarsity.edu.bd/sitemap" class="hover:underline">Site Map</a></li> 
+            </ul> 
+        </div> 
+    </nav> 
+ 
+<!-- Slider Section --> 
+<div id="slider" class="relative bg-gray-900 text-white"> 
+    <div class="container mx-auto py-10 space-y-6"> 
+        <div class="text-center"> 
+            <h2 class="text-4xl font-bold">Welcome to Meherpurian University</h2> 
+            <p class="text-lg">Empowering education for a brighter future.</p> 
+        </div> 
+ 
+        <!-- Image Slider Navigation Buttons (Slide 1, Slide 2, etc.) --> 
+        <div class="space-x-4 flex justify-center mb-4"> 
+            <a href="https://www.harvard.edu/campus/athletics/" class="px-6 py-2 bg-blue-600 rounded hover:bg-blue-500" onclick="showSlide(1)">Athletics</a> 
+            <a href="https://www.harvard.edu/campus/" class="px-6 py-2 bg-blue-600 rounded hover:bg-blue-500" onclick="showSlide(2)">Campus</a> 
+            <a href="https://www.harvard.edu/academics/" class="px-6 py-2 bg-blue-600 rounded hover:bg-blue-500" onclick="showSlide(3)">Academics</a> 
+            <a href="https://www.harvard.edu/campus/work-at-harvard/" class="px-6 py-2 bg-blue-600 rounded hover:bg-blue-500" onclick="showSlide(4)">Quick Bar</a> 
+            <a href="https://commencement.harvard.edu/events-schedule" class="px-6 py-2 bg-blue-600 rounded hover:bg-blue-500" onclick="showSlide(5)">Top Menu</a> 
+        </div> 
+ 
+        <!-- Previous and Next Buttons --> 
+        <div class="absolute top-1/2 left-0 transform -translate-y-1/2 px-4"> 
+            <button onclick="prevSlide()" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-500">&lt;</button> 
+        </div> 
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 px-4"> 
+            <button onclick="nextSlide()" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-500">&gt;</button> 
+        </div> 
+ 
+        <!-- Slider Images (each slide with <img> tag) --> 
+        <div id="slide1" class="slide-image h-100 rounded-lg"> 
+            <img src="one.jpg" alt="Slide 1" class="w-full h-full object-cover rounded-lg"> 
+        </div> 
+        <div id="slide2" class="slide-image h-100 rounded-lg hidden"> 
+            <img src="two.jpg" alt="Slide 2" class="w-full h-full object-cover rounded-lg"> 
+        </div> 
+        <div id="slide3" class="slide-image h-100 rounded-lg hidden"> 
+            <img src="three.jpg" alt="Slide 3" class="w-full h-full object-cover rounded-lg"> 
+        </div> 
+        <div id="slide4" class="slide-image h-100 rounded-lg hidden"> 
+            <img src="four.jpg" alt="Slide 4" class="w-full h-full object-cover rounded-lg"> 
+        </div> 
+        <div id="slide5" class="slide-image h-100 rounded-lg hidden"> 
+            <img src="six.jpg" alt="Slide 5" class="w-full h-full object-cover rounded-lg"> 
+        </div> 
+    </div> 
+</div> 
+ 
+<!-- Add this script to handle navigation between slides --> 
+<script> 
+    let currentSlide = 1; // Set the initial slide number 
+ 
+    // Function to show specific slide and hide others 
+    function showSlide(slideNumber) { 
+        currentSlide = slideNumber; // Update current slide index 
+        updateSlider(); 
+    } 
+ 
+    // Function to show the next slide 
+    function nextSlide() { 
+        currentSlide = (currentSlide % 5) + 1; // Go to the next slide, loop back to 1 after slide 5 
+        updateSlider(); 
+    } 
+ 
+    // Function to show the previous slide 
+    function prevSlide() { 
+        currentSlide = (currentSlide - 2 + 5) % 5 + 1; // Go to the previous slide, loop back to 5 before slide 1 
+        updateSlider(); 
+    } 
+ 
+    // Function to update the slider based on the current slide 
+    function updateSlider() { 
+        // Hide all slides 
+        document.querySelectorAll('.slide-image').forEach(slide => { 
+            slide.classList.add('hidden'); 
+        }); 
+ 
+        // Show the current slide 
+        const targetSlide = document.getElementById('slide' + currentSlide); 
+        targetSlide.classList.remove('hidden'); 
+    } 
+ 
+    // Default slide to be shown on page load 
+    updateSlider(); 
+</script> 
+ 
+ 
+    <!-- Content Section --> 
+    <section id="news" class="py-10 bg-white"> 
+        <div class="container mx-auto"> 
+            <h2 class="text-3xl font-bold mb-4">Latest News & Achievements</h2> 
+            <ul class="space-y-4"> 
+                <li class="bg-gray-100 p-4 rounded shadow"> 
+                    <h3 class="font-bold text-xl">Achievement 1: Excellence in Research</h3> 
+                    <p class="text-gray-700">Meherpurian University is recognized for its groundbreaking research in Data Mining.</p> 
+                </li> 
+                <li class="bg-gray-100 p-4 rounded shadow"> 
+                    <h3 class="font-bold text-xl">Achievement 2: Student Success</h3> 
+                    <p class="text-gray-700">Our students secured first place in the national programming contest.</p> 
+                </li> 
+            </ul> 
+        </div> 
+    </section> 
+ 
+    <!-- Login Section --> 
+    <section id="login" class="py-10 bg-gray-50"> 
+        <div class="container mx-auto max-w-sm"> 
+            <h2 class="text-3xl font-bold mb-4 text-center">Login</h2> 
+            <form class="bg-white p-6 rounded-lg shadow-lg"> 
+                <div class="mb-4"> 
+                    <label for="email" class="block text-gray-700 font-bold">Email</label> 
+                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg" placeholder="Enter your email"> 
+                </div> 
+                <div class="mb-4"> 
+<label for="password" class="block text-gray-700 font-bold">Password</label> 
+                    <input type="password" id="password" class="w-full px-4 py-2 border rounded-lg" placeholder="Enter your password"> 
+                </div> 
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Login</button> 
+            </form> 
+        </div> 
+    </section> 
+ 
+    <!-- Footer Section --> 
+    <footer class="bg-blue-800 text-white py-6"> 
+        <div class="container mx-auto flex justify-between items-start"> 
+            <div> 
+                <h3 class="font-bold text-lg">About</h3> 
+                <p class="text-gray-300">Meherpurian University is a leading institution in Bangladesh offering excellent education and research opportunities.</p> 
+            </div> 
+            <div> 
+                <h3 class="font-bold text-lg">Contact</h3> 
+                <p class="text-gray-300">Phone: 01754904154</p> 
+                <p class="text-gray-300">Email: info@meherpur.ac.bd</p> 
+            </div> 
+            <div> 
+                <h3 class="font-bold text-lg">Useful Links</h3> 
+                <ul class="space-y-2 "> 
+                    <li><a href="#news" class="hover:underline">Latest News</a></li> 
+                    <li><a href="#services" class="hover:underline">Services</a></li> 
+                    <li><a href="#help-desk" class="hover:underline">Help Desk</a></li> 
+                </ul> 
+            </div> 
+        </div> 
+        <p class="text-center mt-6">&copy; 2024 Meherpurian University. All Rights Reserved.</p> 
+    </footer> 
+</body> 
+</html>
